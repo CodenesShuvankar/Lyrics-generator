@@ -19,7 +19,7 @@ st.markdown("""
         background-color: #4a4545;
     }
     .stTextInput>div>div>input {
-        background-color: #ffffff;
+        background-color: #01082e;
     }
     .stButton>button {
         background-color: #1a1818;
@@ -87,8 +87,7 @@ def generate_text(model_path, tokenizer, prompt, max_new_tokens=100, temperature
             base_model, 
             model_path,
             torch_dtype=torch.float32,
-            device_map="auto"
-        )
+        ).to(device)
         model.eval()
 
         # Prepare input
@@ -121,7 +120,7 @@ def generate_text(model_path, tokenizer, prompt, max_new_tokens=100, temperature
 @st.cache_resource
 def initialize_model():
     model_name = "gpt2-medium"
-    model_path = "./lyrics_generator_finetuned"
+    model_path = "D:\My_Projects\Lyrics generator\lyrics_generator_finetuned"
     
     tokenizer = load_tokenizer(model_name)
     return tokenizer, model_path, model_name
@@ -134,6 +133,69 @@ top_k = st.sidebar.slider("Top K", 1, 200, 100)
 top_p = st.sidebar.slider("Top P", 0.1, 1.0, 0.9)
 repetition_penalty = st.sidebar.slider("Repetition Penalty", 1.0, 2.0, 1.3)
 no_repeat_ngram_size = st.sidebar.slider("No Repeat N-gram Size", 1, 5, 3)
+st.subheader("Generation Settings Guide")
+
+with st.expander("Click to view full guide"):
+    st.write("""
+🎛️ **Use these controls to fine-tune how creative, random, or coherent your AI-generated lyrics will be:**
+
+---
+
+📏 **Maximum Length**  
+What it does: Sets the number of tokens (words/pieces) in the generated output.  
+**Recommended**: 100 – 200 for lyrics.  
+**Tip**: Higher values produce longer verses but may reduce coherence.
+
+---
+
+🔥 **Temperature**  
+What it does: Controls randomness.  
+- Low (0.1–0.7): More predictable, repetitive.  
+- High (1.0–2.0): More creative, surprising.  
+**Recommended**: 0.8 – 1.2 for poetic or artistic text.  
+**Tip**: Try 1.0 for a balance of coherence and creativity.
+
+---
+
+🔢 **Top-K Sampling**  
+What it does: Limits the model to selecting from the top K most likely next words.  
+**Recommended**: 50 – 150  
+**Tip**: Lower K = safer outputs; higher K = more diverse lyrics.
+
+---
+
+🔢 **Top-P (Nucleus Sampling)**  
+What it does: Chooses from the smallest possible set of words whose cumulative probability is ≥ p.  
+**Recommended**: 0.85 – 0.95  
+**Tip**: Keeps the generation focused while allowing some surprise.
+
+---
+
+🚫 **Repetition Penalty**  
+What it does: Discourages repeated phrases or words.  
+**Recommended**: 1.2 – 1.4  
+**Tip**: Increase if lyrics feel too repetitive.
+
+---
+
+🧠 **No Repeat N-gram Size**  
+What it does: Prevents repeating any phrase of N words.  
+**Recommended**: 3 – 4 for lyric generation.  
+**Tip**: Helps keep the lyrics fresh and avoids copy-paste loops.
+
+---
+
+🎤 **Example Combo for Creative, Balanced Lyrics:**
+
+| Setting             | Value  |
+|---------------------|--------|
+| Maximum Length      | 150    |
+| Temperature         | 1.0    |
+| Top K               | 100    |
+| Top P               | 0.9    |
+| Repetition Penalty  | 1.3    |
+| No Repeat N-gram    | 3      |
+    """)
 
 # Main content
 try:
