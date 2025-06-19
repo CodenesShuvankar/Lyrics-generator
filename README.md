@@ -17,9 +17,9 @@
         <span style="font-size: 1.2em;">🌟</span> Features
     </h2>
     <h3>Work Flow</h3>
-    <img src="flow.png" alt="Description of the image" width="300" height="200">
+    <img src="flow.png" alt="Description of the image" width="700" height="400">
   <h3>Inter Face </h3>
-  <img src="interface.png" alt="Description of the image" width="300" height="200">
+  <img src="interface.png" alt="Description of the image" width="700" height="400">
   
   <ul style="list-style-type: disc; margin-left: 20px;">
         <li><b>AI-Powered Generation</b>: Leverages a fine-tuned GPT-2 medium model for high-quality lyric generation.</li>
