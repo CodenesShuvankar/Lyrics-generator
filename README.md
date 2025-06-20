@@ -2,6 +2,7 @@
 <h1 style="border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 20px;">
         <span style="font-size: 1.2em;">🎵</span> AI Lyrics Generator</h1>
 <h2>Live link of Notebook - https://www.kaggle.com/code/svdhara/generate-lyrics</h2>
+<h2>Full Process Link - https://www.kaggle.com/code/svdhara/lyrics-generator </h2>
 <p>
         This repository contains the code for an AI-powered lyrics generator built using the Hugging Face <code>transformers</code> library, Parameter-Efficient Fine-Tuning (PEFT) with LoRA, and a Streamlit web interface. The model, a fine-tuned GPT-2 medium, is capable of generating creative and engaging song lyrics based on a user-provided prompt or theme.</p>
 <br>
