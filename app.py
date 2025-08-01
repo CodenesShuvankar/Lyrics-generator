@@ -120,7 +120,7 @@ def generate_text(model_path, tokenizer, prompt, max_new_tokens=100, temperature
 @st.cache_resource
 def initialize_model():
     model_name = "gpt2-medium"
-    # Use relative path for containerized deployment
+    # Use relative path for deployment compatibility
     model_path = "./lyrics_generator_finetuned"
     
     tokenizer = load_tokenizer(model_name)
