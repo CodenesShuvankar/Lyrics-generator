@@ -2,6 +2,8 @@
 
 Transform your ideas into beautiful lyrics using AI! This Streamlit app uses a fine-tuned GPT-2 model to generate creative song lyrics based on your prompts.
 
+## Live Link - https://lyrics-generator-by-sv.streamlit.app/
+
 ## 🌟 Deploy for FREE on Streamlit Community Cloud
 
 ### Why Streamlit Cloud is Perfect:
@@ -36,7 +38,7 @@ git push -u origin main
 6. Click "Deploy"
 
 ### 3. Your App Goes Live!
-- URL: `https://YOUR_USERNAME-lyrics-generator-app-xyz123.streamlit.app`
+- URL: `https://lyrics-generator-by-sv.streamlit.app/`
 - Auto-updates when you push to GitHub
 - Supports up to 1GB RAM (sufficient for your model)
 
